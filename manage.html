@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Manager Customer</title>
+		<link rel="shortcut icon" href="img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<!-- Bootstrap -->
+		<link href="assets/plugin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<!-- Msg Plugin -->
+		<link href="assets/plugin/bootstrap-growl/bootstrap-combined.min.css" rel="stylesheet">
+
+		<!-- Custome CSS -->
+		<link href="assets/css/default.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<h2>Manager Customer</h2>
+					<hr>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<h4><span class="custCntLabel"></span> Customers Infomation</h4>
+					<table id="table_custInfo" class="table table-hover">
+						<caption>
+							<input type="text" id="textFilter" class="form-control input-sm" placeholder="Filter by key word">
+						</caption>
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Create Date</th>
+								<th>Name</th>
+								<th>Phone</th>
+								<th>Address</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+						<tfoot>
+							
+						</tfoot>
+					</table>
+				</div>
+			</div>
+		</div>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="assets/plugin/jquery/jquery.js"></script>
+
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="assets/plugin/bootstrap/js/bootstrap.min.js"></script>
+		<script src="assets/plugin/bootstrap-growl/jquery.bootstrap-growl.min.js"></script>
+		<script src="assets/plugin/datejs/date.js"></script>
+		<script src="assets/plugin/tablesorter/jquery.tablesorter.js"></script>
+		
+		<!-- jQuery (init page)-->
+		<script src="assets/script/setting/setting.js"></script>
+		<script src="assets/script/websql/websql.js"></script>
+		<script src="assets/script/manage.js"></script>
+	</body>
+</html>

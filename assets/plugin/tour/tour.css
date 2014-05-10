@@ -1,0 +1,63 @@
+﻿.tour-backdrop {
+ position: fixed;
+ top: 0;
+ right: 0;
+ bottom: 0;
+ left: 0;
+ z-index: 1030;
+ display: none;
+ overflow: hidden;
+ background-color: #000000;
+ opacity: 0.5;
+ filter: alpha(opacity=50);
+}
+
+.tour.in {
+    z-index: 1050;
+    position: fixed !important;
+}
+
+.highlight-relative{
+	z-index: 1040;
+	position: relative !important;
+	border-radius: 5px;
+}
+
+.highlight-absolute{
+	z-index: 1040;
+	position: absolute !important;
+	border-radius: 5px;
+}
+
+.highlight-fixed{
+	z-index: 1040;
+	position: fixed !important;
+	border-radius: 5px;
+}
+
+.highlight-static{
+	z-index: 1040;
+	position: relative !important;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	border-radius: 5px;
+}
+
+.highlight-whiteBG{
+	background: white;
+	opacity: 1;
+}
+
+.popover {
+    z-index: 1040 !important;
+}
+
+.tour-backdrop.in {
+    display: block;
+}
+
+#tour-start, #tour-end{
+z-index: 1500;
+}

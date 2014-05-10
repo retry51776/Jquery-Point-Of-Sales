@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title class="bussiness-name"></title>
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Jquery UI -->
+    <link href="assets/plugin/jquery-ui/jquery-ui.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="assets/plugin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Msg Plugin -->
+    <link href="assets/plugin/bootstrap-growl/bootstrap-combined.min.css" rel="stylesheet">
+    <!-- Tour Plugin -->
+    <link href="assets/plugin/tour/tour.css" rel="stylesheet">
+    <!-- Custome CSS -->
+    <link href="assets/css/default.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="alert alert-danger hidden">
+          <strong>Oh snap!</strong> Change a few things up and try submitting again.
+        </div>
+      </div>
+      <div class="row text-center bussiness">
+        <div class="col-md-2">
+          <img class="bussiness-ico img-thumbnail visible-lg visible-md" src="img/bussiness-ico.png">
+        </div>
+        <div class="col-md-4">
+          <h1 class="bussiness-name">Forgot to set bussiness name?</h1>
+          <p class="bussiness-address visible-lg visible-md visible-sm">Forgot to set address</p>
+          <p class="visible-lg visible-md visible-sm">
+            <span class="bussiness-state">state</span> , 
+            <span class="bussiness-zip">zip</span>
+          </p>
+          <span title="Phone" class="visible-lg visible-md visible-sm">
+            <span class="glyphicon glyphicon-earphone"></span>P:
+            <span class="bussiness-phone">(123) 456-7890</span>
+          </span>
+          <span title="Fax" class="visible-lg visible-md visible-sm">
+            <span class="glyphicon glyphicon-send"></span>F:
+            <span class="bussiness-fax">(123) 456-7890</span>
+          </span>
+        </div>
+        <div class="visible-lg visible-md col-md-3">
+          <table id="daily_summary" class="alert alert-info">
+            <tr class="row">
+              <td class="text-right">Confirmed Customer</td>
+              <td></td>
+              <td id="daily_cust_cnt">0</td>
+            </tr>
+            <tr class="row">
+              <td class="text-right">Confirmed Bill</td>
+              <td> $ </td>
+              <td id="daily_bill_total">0.00</td>
+            </tr>
+          </table>
+          <div class="row">
+            <div class="panel panel-danger tour" id="demo-tour">
+              <div class="panel-heading">
+                  Need some help?
+              </div>
+              <div class="panel-body">
+                  <button class="btn btn-danger" data-start="tour" id="start" data-original-title="" title="">Start</button>
+                  <button class="btn btn-danger" data-stop="tour" id="stop" data-original-title="" title="">Stop</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 reports">
+          <div class="breadcrumb">
+            <a href="report.html" target="_blank">Daily Report</a>
+          </div>
+          <div class="breadcrumb">
+            <a href="statistics.html" target="_blank">Statistics Report</a>
+          </div>
+          <div class="breadcrumb">
+            <a href="manage.html" target="_blank">Manage Customer</a>
+          </div>    
+        </div> 
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-6" id="UI-menu">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h6 class="panel-title title">Menu</h6>
+            </div>
+            <div class="panel-body">
+              <table class="content table table-hover">
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 panel panel-default" id="UI-customer"></div>
+      </div>
+    </div>
+    <!-- Dialog -->
+    <div class="modal fade" id="myModal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title"></h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary modal_confirm">Confirm</button>
+          </div>
+        </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="assets/plugin/jquery/jquery.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="assets/plugin/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/plugin/bootstrap-growl/jquery.bootstrap-growl.min.js"></script>
+    <script src="assets/plugin/tablesorter/jquery.tablesorter.js"></script>
+    <script src="assets/plugin/jquery-ui/jquery-ui.js"></script>
+    <script src="assets/plugin/tour/tour.js"></script>
+    
+    <!-- jQuery (init page)-->
+    <script src="assets/script/setting/setting.js"></script>
+    <script src="assets/script/websql/websql.js"></script>
+    <script src="assets/script/menu/menu.js"></script>
+    <script src="assets/script/customer/customer.js"></script>
+    <script src="assets/script/index.js"></script>
+  </body>
+</html>
