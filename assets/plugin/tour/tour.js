@@ -46,11 +46,10 @@
         var items = self.options.items;
 
         if (self.isActive) {
-            self.$backdrop = $('<div class="tour-backdrop" />')
-                .addClass('in')
-                .insertAfter( $(items[self.i].id) );
+            self.$backdrop = $('<div class="tour-backdrop in" />')
+                .appendTo( "body" );
         } else if (!self.isActive && self.$backdrop) {
-            self.$backdrop.removeClass('in');
+            self.$backdrop.remove();
         }
     };
 
@@ -92,7 +91,6 @@
 
 
     Tour.prototype.hideTour = function () {
-
         this.stop();
         this.backdrop();
     };
@@ -116,7 +114,8 @@
         var length = this.options.items.length;
         
         self.i = localStorage.getItem( this.$element.attr('id') );
-        if( false && isFinite(String(self.i)) && self.i < items.length-1 ){
+        if( this.options.storage && isFinite(String(self.i)) && self.i < items.length-1 ){
+            localStorage.setItem( this.$element.attr('id') , i );
         }else{
             self.i = 0;
             localStorage.setItem( this.$element.attr('id') , 0 );
@@ -150,7 +149,7 @@
         var items = this.options.items;
         var length = this.options.items.length;
         var delay = this.options.delay;
-        if (this.isActive && $(items[self.i].id).length > 0) {
+        if (this.isActive ) {
             setTimeout(function () {
                 self.hideTourItem(items[self.i]);
                 self.i++;
@@ -168,37 +167,60 @@
 
 
     Tour.prototype.showTourItem = function (item) {
+        var thisItem    = item;
+        var self        = this;
         $(".popover").remove();
-        if( item.hasOwnProperty("onShow") ){
-            item.onShow();
+        if( thisItem.hasOwnProperty("onShow") ){
+            thisItem.onShow();
         }
-        if( $(item.id).length ){
-            $(item.id+":first").popover({
-                html        : true,
-                title       : "<h6>"+item.title+"</h6>",
-                container   : 'body',
-                trigger     : "manual",
-                placement   : item.placement,
-                content     : item.content
-            });
-            $(item.id).addClass("highlight-"+$(item.id).css("position")).popover("show").goTo();
-            if( $(item.id).css("background-color") == "rgba(0, 0, 0, 0)" ){
-                $(item.id).addClass("highlight-whiteBG");
+        
+        setTimeout(function () {
+            var thisEle     = $(thisItem.id);
+            if( thisEle.length && thisEle.is(":visible") ){
+
+                $(thisItem.id + ":first").popover({
+                    html        : true,
+                    title       : "<h6>"+thisItem.title+"</h6>",
+                    container   : 'body',
+                    trigger     : "manual",
+                    placement   : thisItem.placement,
+                    content     : thisItem.content
+                });
+
+                if( thisEle.css("position") == "static"){
+                    thisEle.addClass("highlight-static");
+                }
+                
+                if( $(thisItem.id).css("background-color") == "rgba(0, 0, 0, 0)" ){
+                    $(thisItem.id).addClass("highlight-whiteBG");
+                }
+
+                $(thisItem.id).addClass("highlight").popover("show").goTo();
+
+                localStorage.setItem( self.$element.attr('id') , self.i );
+
+                if( thisItem.hasOwnProperty("onShown") ){ 
+                    thisItem.onShown();
+                }
+            }else{
+                if( self.options.skip ){
+                    self.i++;
+                    self.showTourItem( self.options.items[self.i] );
+                }else{
+                    if( thisItem.hasOwnProperty("onMiss") ){ 
+                        thisItem.onMiss();
+                    }
+                }
             }
-            localStorage.setItem( this.$element.attr('id') , this.i );
-        }
-        if( item.hasOwnProperty("onShown") ){ 
-            item.onShown();
-        }
+        }, (thisItem.delay || 0));
     };
 
     Tour.prototype.hideTourItem = function (item) {
         $(item.id).popover('destroy');
-        $(".highlight-relative").removeClass("highlight-relative");
-        $(".highlight-absolute").removeClass("highlight-absolute");
-        $(".highlight-fixed").removeClass("highlight-fixed");
-        $(".highlight-static").removeClass("highlight-static");
-        $(".highlight-whiteBG").removeClass("highlight-whiteBG");
+        $(".highlight, .highlight-static, .highlight-whiteBG")
+            .removeClass("highlight")
+            .removeClass("highlight-static")
+            .removeClass("highlight-whiteBG");
     };
 
     var old = $.fn.tour;

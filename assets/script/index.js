@@ -62,7 +62,9 @@ $(function(){
 			});
 
 			$("#demo-tour").tour({
-				items : [
+				storage : true,
+				skip	: true,
+				items 	: [
 				      {
 				        title: "Header Page",
 				        content: "<p>You can <b>add</b> and <b>edit</b> these context in /assets/script/setting.js variable <b>setting.info</b><p>\
@@ -111,6 +113,7 @@ $(function(){
 				        content: "Click this button to return default Menu",
 				        id: ".menu_clearSearch",
 				        placement: "top",
+				        delay: 500,
 				        onShow : function(){
 				        	$(".menu_clearSearch").trigger("click");
 				        }
@@ -118,13 +121,13 @@ $(function(){
 				      {
 				        title: "Category",
 				        content: "This is a Category button, click it to look for items within this Category.",
-				        id: ".label_category",
+				        id: ".category td",
 				        placement: "top",
 				      },
 				      {
 				        title: "Items",
 				        content: "This is a item within selected Category. <b>Click</b> item to add to customer cart.",
-				        id: "tr.dish td",
+				        id: ".dish td",
 				        placement: "top",
 				        onShow : function(){
 				        	if( !$(".category").length){
@@ -203,8 +206,9 @@ $(function(){
 				      {
 				        title: "Open Action Panel",
 				        content: "This is Action Panel for that Item",
-				        id: "#myModal",
-				        placement: "top",
+				        id: "#myModal.in",
+				        placement: "bottom",
+				        delay: 500,
 				        onShow: function(){
 				        	$("#UI-customer .custInfo.active .customerOrder .orderItem td .orderItem_setting:first").trigger("click");
 				        }
@@ -212,8 +216,9 @@ $(function(){
 				      {
 				        title: "Close Action Panel",
 				        content: "Click Cancel or Confirm when you are done",
-				        id: "#myModal .modal-header button.close",
+				        id: "#myModal.in .modal-header button.close",
 				        placement: "right",
+
 				        onShown: function(){
 				        	setTimeout(function () {
 				        		$(".modal-header .close").trigger("click");

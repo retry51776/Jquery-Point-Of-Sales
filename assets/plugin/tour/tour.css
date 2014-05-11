@@ -4,7 +4,7 @@
  right: 0;
  bottom: 0;
  left: 0;
- z-index: 1030;
+ z-index: 1040;
  display: none;
  overflow: hidden;
  background-color: #000000;
@@ -17,32 +17,17 @@
     position: fixed !important;
 }
 
-.highlight-relative{
-	z-index: 1040;
-	position: relative !important;
-	border-radius: 5px;
-}
-
-.highlight-absolute{
-	z-index: 1040;
-	position: absolute !important;
-	border-radius: 5px;
-}
-
-.highlight-fixed{
-	z-index: 1040;
-	position: fixed !important;
+.highlight, .highlight-static{
+	z-index: 1050;
 	border-radius: 5px;
 }
 
 .highlight-static{
-	z-index: 1040;
 	position: relative !important;
-	left: 0;
-	right: 0;
-	top: 0;
-	bottom: 0;
-	border-radius: 5px;
+	left: 0 !important;
+	top: 0 !important;
+	right: 0 !important;
+	right: 0 !important;
 }
 
 .highlight-whiteBG{
@@ -51,7 +36,7 @@
 }
 
 .popover {
-    z-index: 1040 !important;
+    z-index: 1050 !important;
 }
 
 .tour-backdrop.in {
@@ -59,5 +44,5 @@
 }
 
 #tour-start, #tour-end{
-z-index: 1500;
+	z-index: 1500;
 }
